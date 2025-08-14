@@ -178,6 +178,11 @@ jobs:
           cd ./wrt/
 
           make download -j$(nproc)
+      
+      - name: Debug with SSH
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 600
 
       - name: Compile Firmware
         if: env.WRT_TEST != 'true'
