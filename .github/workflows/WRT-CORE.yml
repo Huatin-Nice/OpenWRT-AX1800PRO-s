@@ -182,7 +182,7 @@ jobs:
       - name: Debug with SSH
         if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: mxschmitt/action-tmate@v3
-        timeout-minutes: 600
+        timeout-minutes: 6000
 
       - name: Compile Firmware
         if: env.WRT_TEST != 'true'
